@@ -41,7 +41,7 @@ for ($row = 2; $row <= $lastRow; $row++) {
             <?php foreach ($data as $item) { ?>
                 <tr>
                     <td><?php echo $item['user']; ?></td>
-                    <td><?php echo $item['total']; ?></td>
+                    <td><?php echo $item['total']; ?> บาท</td>
                 <?php } ?>
         </tbody>
     </table>

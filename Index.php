@@ -1,5 +1,6 @@
 <?php
 ini_set('display_errors', 0);
+
 require_once "./excel/PHPExcel.php";
 $tmpfname = "csv/output.csv";
 $excelReader = PHPExcel_IOFactory::createReaderForFile($tmpfname);
@@ -9,10 +10,8 @@ $lastRow = $worksheet->getHighestRow();
 $data = [];
 for ($row = 2; $row <= $lastRow; $row++) {
 	$array = array(
-		'name' => $worksheet->getCell('A' . $row)->getValue(),
-		'address' => $worksheet->getCell('B' . $row)->getValue(),
-		'phone' => $worksheet->getCell('C' . $row)->getValue(),
-		'total' => $worksheet->getCell('D' . $row)->getValue()
+		'user' => $worksheet->getCell('A' . $row)->getValue(),
+        'total' => $worksheet->getCell('B' . $row)->getValue(),
 	);
 	array_push($data, $array);
 }

@@ -1,10 +1,7 @@
 <?php
 ini_set('display_errors', 0);
-
-//parent class
 require_once("./Classes/Order.php");
 require_once("./Classes/User.php");
-//menu sub class
 require_once("./Menu/Burger.php");
 require_once("./Menu/Cola.php");
 require_once("./Menu/Fries.php");
@@ -12,16 +9,11 @@ require_once("./Menu/Pizza.php");
 
 
 if (isset($_POST['submit_order'])) {
-    //user
     $name = $_POST['name'];
     $address = $_POST['address'];
     $phone = $_POST['phone'];
-
-    //hamburger
     $hamburger_quantity = $_POST['hamburger_quantity'];
     $hamburger_toppings = $_POST['hamburger_toppings'];
-
-    //pizza
     $pizza_quantity = $_POST['pizza_quantity'];
 
     if (isset($_POST['pizza_toppings_seafood'])) {
@@ -44,7 +36,6 @@ if (isset($_POST['submit_order'])) {
         $pizza_size = "Large";
     }
 
-    //fries
     $fries_quantity = $_POST['fries_quantity'];
     if (isset($_POST['fries_size_normal'])) {
         $fries_size = "Normal";
@@ -55,7 +46,6 @@ if (isset($_POST['submit_order'])) {
     if (isset($_POST['fries_size_large'])) {
         $fries_size = "Large";
     }
-    //cola
     $cola_quantity = $_POST['cola_quantity'];
     if (isset($_POST['cola_size_normal'])) {
         $cola_size = "Normal";
@@ -82,7 +72,6 @@ if (isset($_POST['submit_order'])) {
     echo $user->display_information() . "<br/>";
     $order->display_order();
     echo "<b>ราคาทั้งหมด " . $order->total_price() . "</b>";
-
     $order->save_to_excel();
 }
 ?>
